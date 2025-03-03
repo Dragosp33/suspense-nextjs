@@ -10,7 +10,12 @@ export default async function CategoriesTableWithParams({
   console.log('SEARCH OARAMS:::::::: ', search);
   const query = search?.query || '';
   const currentPage = Number(search?.page) || 1;
-  const url = `http://localhost:3000/api/data?page=${currentPage}&query=${query}`;
+  const domain =
+    process.env.NODE_ENV === 'production'
+      ? process.env.DOMAIN
+      : 'http://localhost:3000';
+  const url = `${domain}/api/data?page=${currentPage}&query=${query}`;
+  //const url = `http://localhost:/api/data?page=${currentPage}&query=${query}`;
   const response = await fetch(url, {
     cache: 'no-store',
   });

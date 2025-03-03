@@ -5,7 +5,11 @@ export default async function CategoriesTable({
   query: string;
   page: Number;
 }) {
-  const url = `http://localhost:3000/api/data?page=${page}&query=${query}`;
+  const domain =
+    process.env.NODE_ENV === 'production'
+      ? process.env.DOMAIN
+      : 'http://localhost:3000';
+  const url = `${domain}/api/data?page=${page}&query=${query}`;
   const response = await fetch(url, {
     cache: 'no-store',
   });

@@ -1,15 +1,16 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "build-start": "next build && next start"
+    "build-start": "next build && next start",
+    "dev": "next dev",
+    "start": "next start"
   },
   "dependencies": {
     "next": "canary",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sst": "3.9.22",
     "use-debounce": "^10.0.4"
   },
   "devDependencies": {
